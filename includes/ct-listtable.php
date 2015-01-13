@@ -243,3 +243,4 @@ class CTListTable extends \WP_List_Table
     		return $process_items;
     }
 }
+?>
