@@ -1,0 +1,52 @@
+@import 'think201-wp';
+
+.ct_success_msg
+{
+    font-size: 20px;
+	padding-left: 15px;
+	color: #368000;
+}
+
+.ct-msg
+{
+    font-size: 16px;
+    display: none;
+}
+
+.ct-fields-container
+{
+    margin: 10px 0;
+}
+
+.ct-fields-container input, 
+.ct-fields-container textarea, 
+.ct-fields-container select
+{
+}
+
+#ct-add-field
+{
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.ct-fields-set input 
+{
+    margin: 5px 0;    
+}
+
+.ct-inputs
+{
+    position: relative;
+}
+
+.ct-remove-field
+{
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    color: #ff0010;
+    font-size: 18px;
+    z-index: 99;
+}
