@@ -48,3 +48,5 @@ class CTShortCodes
         return $Output;
     }    
 }
+
+?>

@@ -19,8 +19,8 @@ class CT_Install
         logo VARCHAR(500),
         isfeatured BOOLEAN DEFAULT 0,
         client_since DATETIME,   
-        created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        created_at DATETIME NOT NULL,
+        updated_at DATETIME NOT NULL,
         misc VARCHAR(50),
         status TINYINT(5) DEFAULT 1,
         Primary Key id (id)
