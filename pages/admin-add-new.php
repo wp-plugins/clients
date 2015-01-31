@@ -72,7 +72,7 @@
 					</tr>					
 				</table>
 				<p class="submit">	    
-					<button onClick="CTForm.post('#ct_add_form')" class="button button-primary" type="button">Add Client</button>
+					<button onClick="CTForm.post('#ct_add_form', false)" class="button button-primary" type="button">Add Client</button>
 				</p>
 			</form>
 		</div>

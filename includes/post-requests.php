@@ -47,7 +47,7 @@ class PostData
 		$Data['name'] 				= isset($_POST['name']) ? $_POST['name'] : ''; 	
 		$Data['description'] 		= isset($_POST['description']) ? $_POST['description'] : ''; 	
 
-		$Data['url'] 				= isset($_POST['url']) ? $_POST['url'] : '';		
+		$Data['url'] 				= isset($_POST['url']) ? $_POST['url'] : '#';		
 		$Data['logo'] 				= isset($_POST['logo']) ? $_POST['logo'] : '';
 		$Data['description'] 		= isset($_POST['description']) ? $_POST['description'] : '';		
 
