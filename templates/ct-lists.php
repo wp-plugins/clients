@@ -1,3 +1,12 @@
+<?php
+
+$Config = shortcode_atts(
+	array(
+		'numcols' => CT_SHRT_NUMCOLUMNS,
+		'class' => '',
+		'showlogo' => true
+		), $Config);
+?>
 
 <ul class="clients-list-holder">
 	

@@ -95,12 +95,12 @@
 		                        <label for="url">Featured:</label>
 						</td>
 						<td>
-		                     	<input type="checkbox" name="isfeatured" id="isfeatured" value="1">Is Featured?<br>
+		                     	<input type="checkbox" name="isfeatured" id="isfeatured" value="1" <?php checked($Client->isfeatured, true, true); ?>>Is Featured?<br>
 						</td>
 					</tr>					
 				</table>
 				<p class="submit">	    
-		        <button onClick="CTForm.post('#ct_add_form')" class="button button-primary" type="button">Update Client</button>
+		        <button onClick="CTForm.post('#ct_add_form', true)" class="button button-primary" type="button">Update Client</button>
 				</p>
 		    </form>
 		</div>

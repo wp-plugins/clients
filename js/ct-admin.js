@@ -8,7 +8,7 @@ var CTForm = {
     formObj  : null,
   },
 
-  post: function(FormId)
+  post: function(FormId, isUpdate)
   {    
     CTForm.settings.formObj = $(FormId);
 
@@ -27,7 +27,12 @@ var CTForm = {
         {
           $('.ct_success_msg p').html(data.msg);
           $('.ct_success_msg').fadeIn(1000).siblings('.ct-msg').hide();
-          $(FormId)[0].reset();
+          
+          if(!isUpdate)
+          {
+            $(FormId)[0].reset();  
+          }
+          
         } 
         else 
         {
