@@ -67,7 +67,7 @@ class CTAdmin
     {
         if (!is_admin()) 
         {           
-            wp_enqueue_style( 'ct-css', plugins_url( 'clients/assets/css/ct.css' ), array(), FR_VERSION, 'all' );
+            wp_enqueue_style( 'ct-css', plugins_url( 'clients/assets/css/ct.css' ), array(), CT_VERSION, 'all' );
         }
     }    
 
