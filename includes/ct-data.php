@@ -26,7 +26,7 @@ class CTData
 
 		if($Config['category'] != CT_SHRT_CATEGORY)
 		{
-			$Query .= " AND category = ".$Config['category'];
+			$Query .= " AND category = '".$Config['category']."'";
 		}		
 
 		if($Config['numclients'] != CT_SHRT_NUMCLIENTS)
