@@ -1,6 +1,15 @@
 <?php 
 namespace ct;
 
+// Constants
+
+define('CT_SHRT_SHOWTYPE', 'all');
+define('CT_SHRT_CATEGORY', 'na');
+define('CT_SHRT_STYLE', 'grid');
+define('CT_SHRT_NUMCLIENTS', '-1');
+define('CT_SHRT_NUMCOLUMNS', '3');
+
+
 function ctGetCheckBoxVal($Value)
 {
 	if($Value == 'on')
@@ -47,18 +56,6 @@ function ctGetInputFields($Fields)
     return $field;
 }
 
-function ctGetCheckBox($Value)
-{
-    if($Value == '1')
-    {
-        echo 'checked';
-    }
-    else
-    {
-        echo '';
-    }
-}
-
 function ctRedirectTo($url)
 {
     if (headers_sent())
@@ -80,6 +77,24 @@ function addhttp($url)
     }
     
     return $url;
+}
+
+function getClientCatList($SetValue = null)
+{
+    $Categories = CTData::getCategories();
+?>
+    <select name="category">
+      <option value="na">No Specific</option>  
+<?php
+    foreach ($Categories as $key => $value) 
+    {
+    ?>
+        <option value="<?php echo $key;?>" <?php selected( $SetValue , $key, true);?>><?php echo $value; ?></option>
+    <?php
+    }
+?>
+    </select>
+<?php
 }
 
 ?>

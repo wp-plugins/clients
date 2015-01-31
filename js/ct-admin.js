@@ -101,6 +101,48 @@ var Validator = {
 
 };
 
+var CTCreateShortCode = {
+  settings:
+  {
+      shortcodeHolder : $('#shortcode-holder'),
+      formObj : null
+  },
+
+  post: function(FormId)
+  {    
+    CTCreateShortCode.settings.formObj = $(FormId);
+
+    if(Validator.check(CTCreateShortCode.settings.formObj) == false)
+    {
+        return false;
+    }
+
+    $.ajax({
+      url: ajaxurl,
+      type: 'post',
+      data: CTCreateShortCode.settings.formObj.serialize(),
+      success: function(data, status) 
+      {
+        if (data.status == true) 
+        {
+          $('.ct_success_msg p').html(data.msg);
+          $('.ct_success_msg').fadeIn(1000).siblings('.ct-msg').hide();
+          CTCreateShortCode.settings.shortcodeHolder.html(data.shortcode)
+        } 
+        else 
+        {
+          $('.ct_error_msg p').html(data.msg);
+          $('.ct_error_msg').fadeIn(1000).siblings('.ct-msg').hide();
+        }
+      },
+      error: function() 
+      {
+        $('.ct_error_msg p').html(data.msg);
+        $('.ct_error_msg').fadeIn(1000).siblings('.ct-msg').hide();
+      }                        
+    }); 
+  }
+};
  
 $(function() {
     Upload.init();

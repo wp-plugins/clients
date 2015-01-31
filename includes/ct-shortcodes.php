@@ -1,52 +1,75 @@
 <?php
 namespace ct;
-	
-add_shortcode( "clients_all", array(CTShortCodes::get_instance(), 'getAll'));
-add_shortcode( "clients_featured", array(CTShortCodes::get_instance(), 'getFeatured'));
+
+add_shortcode( "clients", array('ct\CTShortCodes', 'clients'));
 
 class CTShortCodes
 {
-    protected static $instance = null;
-
-    public static function get_instance() 
+    public static function clients($attribs, $content = null, $code)
     {
-        // create an object
-        NULL === self::$instance and self::$instance = new self;
+        // All the attributes
+        $ClientList = self::getClients($attribs);
 
-        return self::$instance;
-    }
-
-    public static function getAll()
-    {
-        $Lists = CTData::getClientList();
-
-        $Output = CTShortCodes::_processList($Lists);
+        $Output = CTShortCodes::_processStyle($ClientList, $attribs);
 
         return $Output;
     }
 
-    public static function getFeatured()
+    private static function getClients($Config)
     {
-        $Lists = CTData::getFeaturedClients();
+        $List = CTData::getClientList($Config);
 
-        $Output = CTShortCodes::_processList($Lists);
-
-        return $Output;
+        return $List;
     }
 
-    private static function _processList($ClientList)
+    private static function _processStyle($ClientList, $Config)
     {
-        $Output = '<ul class="client-list">';
+        $Atts = shortcode_atts( array('style' => 'grid'), $Config );
 
-        foreach($ClientList as $Client)
+        switch ($Atts['style']) 
         {
-            $Output .= '<li><a href="'.addhttp($Client->url).'" target="_blank">'.$Client->name.'</a></li>';
+            case "list":
+                
+                // List Style
+                $StyledClients = CTShortCodes::_List($ClientList, $Config);
+                break;
+            
+            case "grid":
+               
+                // Grid Style
+                $StyledClients = CTShortCodes::_Grid($ClientList, $Config);
+                break;
+           
+            case "slider":
+                
+               // Slider Style
+                $StyledClients = CTShortCodes::_Slider($ClientList, $Config);
+                break;
+            
+            default:
+
+                // Call list style by default
+                $StyledClients = CTShortCodes::_List($ClientList, $Config);                
         }
 
-        $Output .= '</ul>';
-
-        return $Output;
+        return $StyledClients;
     }    
+
+    public static function _List($ClientList, $Config)
+    {
+        require_once CT_PLUGIN_DIR .'/templates/ct-lists.php'; 
+    }
+
+    public static function _Grid($ClientList, $Config)
+    {        
+        require_once CT_PLUGIN_DIR .'/templates/ct-grid.php';     
+    }
+
+    public static function _Slider($ClientList, $Config)
+    {        
+       
+        require_once CT_PLUGIN_DIR .'/templates/ct-slider.php';  
+    }
 }
 
 ?>

@@ -27,6 +27,10 @@ class CT_Install
         )ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
         $wpdb->query($ct_clients_query); 
+
+        require_once 'ct-data.php';
+
+        ct\CTData::addCategory('General');
     }
 
     public static function deactivate()

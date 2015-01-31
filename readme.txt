@@ -4,8 +4,8 @@ Tags: clients, list, add, featured, print
 Requires at least: 3.5.2
 Donate link: http://www.think201.com/
 Tested up to: 4.1
-Stable tag: 1.0
-Version: 1.0
+Stable tag: 1.0.1
+Version: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,10 @@ To raise issues or if you have a question for us, post to the support forum here
 Once Clients plug-in is installed and activated, you can see Clients on the sidebar menu section.  
 
 1. Start adding client information from Dashboard page by clicking on Add New Client.
+2. Click on All Clients to view the clients data you added 
+3. Click on ShortCodes, to set parameters to retrieve client lists such as number of clients to be shown, should the logo be included, style options etc., 
+4. Click on Generate Shortcode to get the shortcode.
+5. Use the shortcode in your site to show the clients information
 
 == Screenshots ==
 To be updated soon
@@ -68,7 +72,20 @@ To be updated soon
 
 * Initial version of ClientsPlugin checkin.
 
+= 1.0.1 =
+
+* Its recommended to delete the existing plugin & install the updated one.
+
 == Changelog ==
 
 = 1.0 =
 - First commit to the WP repository.
+
+= 1.0.1 =
+- Add configuration for short code generation 
+- Generate & use short code to display clients added 
+- Generate & use function to display clients added 
+- Minor bug fixes 
+- UI Enhancements
+
+

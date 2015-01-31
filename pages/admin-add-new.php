@@ -12,16 +12,16 @@
 	</div>
  	<div class="tbox">
 		<div class="tbox-heading">
-			<h3>Clientele </h3>
-		  	<a href="http://labs.think201.com/clients" target="_blank" class="pull-right">Need help?</a>
+			<h3>Clients</h3>
+		  	<a href="http://labs.think201.com/plugins/clients" target="_blank" class="pull-right">Need help?</a>
 		</div>
 		<div class="tbox-body">
 			<form name="ct_add_form" id="ct_add_form" action="#" method="post">		        
-		            <input type="hidden" name="action" value="page_add_new">
+				<input type="hidden" name="action" value="page_add_new">
 				<table class="form-table">
 					<tr valign="top">
 						<th scope="row">
-		                        <label for="name">Name:</label>
+							<label for="name">Name:</label>
 						</td>
 						<td>
 							<input type="text" id="name" name="name" placeholder="Client Name" class="regular-text" data-validations="required">
@@ -29,15 +29,15 @@
 					</tr>
 					<tr valign="top">
 						<th scope="row">
-		                       <label for="description">Description:</label>
+							<label for="description">Description:</label>
 						</td>
 						<td>
-		                        <textarea rows="4" cols="50" id="description" name="description" placeholder="Client Description"></textarea>
+							<textarea rows="4" cols="50" id="description" name="description" placeholder="Client Description"></textarea>
 						</td>
 					</tr>					
 					<tr valign="top">
 						<th scope="row">
-		                        <label for="url">URL:</label>
+							<label for="url">URL:</label>
 						</td>
 						<td>
 							<input type="text" id="url" name="url" placeholder="URL of Client's website" value="" class="regular-text">							
@@ -45,36 +45,36 @@
 					</tr>					
 					<tr valign="top">
 						<th scope="row">
-		                        <label for="logo">Logo:</label>
+							<label for="logo">Logo:</label>
 						</td>
 						<td>
 							<input type="text" id="logo" name="logo" placeholder="Client Logo" class="regular-text">		                        
-		                        <input id="upload_logo" class="button" type="button" value="Upload Logo" />		                        
+							<input id="upload_logo" class="button" type="button" value="Upload Logo" />		                        
 						</td>
 					</tr>					
 					<tr valign="top">
 						<th scope="row">
-		                        <label for="category">Category:</label>
+							<label for="category">Category:</label>
 						</td>
 						<td>
-			                     <select name="category">
-								<option value="general">General</option>
-			                    </select>
+							<?php ct\getClientCatList(); ?>
+							<br><br>
+							<a href="<?php print admin_url('admin.php?page=ct-categories'); ?>">add new category</a>
 						</td>
 					</tr>					
 					<tr valign="top">
 						<th scope="row">
-		                        <label for="url">Featured:</label>
+							<label for="url">Featured:</label>
 						</td>
 						<td>
-		                     	<input type="checkbox" name="isfeatured" id="isfeatured" value="1">Is Featured?<br>
+							<input type="checkbox" name="isfeatured" id="isfeatured" value="1">Is Featured?<br>
 						</td>
 					</tr>					
 				</table>
 				<p class="submit">	    
-		        <button onClick="CTForm.post('#ct_add_form')" class="button button-primary" type="button">Add Client</button>
+					<button onClick="CTForm.post('#ct_add_form')" class="button button-primary" type="button">Add Client</button>
 				</p>
-		    </form>
+			</form>
 		</div>
 
 		<div class="tbox-footer">

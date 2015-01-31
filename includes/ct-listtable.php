@@ -10,7 +10,7 @@ class CTListTable extends \WP_List_Table
 {
     private $order;
     private $orderby;
-    private $items_per_page = 10;
+    private $items_per_page = 20;
 
     public function __construct()
     {
@@ -31,8 +31,6 @@ class CTListTable extends \WP_List_Table
 
         $ct_clients = $wpdb->prefix.'ct_clients';
 
-        //$args = array( 'ID', 'post_title', 'post_date', 'post_content', 'post_type' );
-        
         $args = array( 'id', 'name', 'logo', 'url', 'category');
         
 
@@ -49,7 +47,7 @@ class CTListTable extends \WP_List_Table
 
     public function set_order()
     {
-        $order = 'DESC';
+        $order = 'ASC';
         if ( isset( $_GET['order'] ) AND $_GET['order'] )
             $order = $_GET['order'];
         $this->order = esc_sql( $order );
@@ -57,7 +55,7 @@ class CTListTable extends \WP_List_Table
 
     public function set_orderby()
     {
-        $orderby = 'post_date';
+        $orderby = 'created_at';
         if ( isset( $_GET['orderby'] ) AND $_GET['orderby'] )
             $orderby = $_GET['orderby'];
         $this->orderby = esc_sql( $orderby );
@@ -92,19 +90,13 @@ class CTListTable extends \WP_List_Table
      */
     public function get_columns()
     {
-        // $columns = array(
-        //     'ID'         => __( 'ID' ),
-        //     'post_title' => __( 'Title' ),
-        //     'post_date'  => __( 'Date' ),
-        //     'post_type'  => __( 'Type' )
-        // );
-
         $columns = array(
             'id'         => __( 'ID' ),
             'name' 			 => __( 'Name' ),
             'logo'       => __( 'Logo' ),
             'url'  			 => __( 'URL' ),
-            'category'   => __( 'Category' )
+            'category'   => __( 'Category' ),
+            'edit'   => __( 'Edit' )
         );
 
         return $columns;        
@@ -116,6 +108,7 @@ class CTListTable extends \WP_List_Table
     public function get_sortable_columns()
     {
         $sortable = array(
+            'id'     => array( 'id', true ),
             'name'     => array( 'name', true ),
             'category' => array( 'category', true )
         );
@@ -237,6 +230,7 @@ class CTListTable extends \WP_List_Table
     				// URL
 			$item->url = '<a href="'.addhttp($item->url).'" target="_blank">'.$item->url.'</a>';
 
+                $item->edit = '<a href="'.admin_url('admin.php?page=ct-edit-client&clientid='.$item->id).'">Edit</a>';
     				$process_items[$key] = $item;
     		}
 

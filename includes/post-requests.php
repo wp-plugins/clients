@@ -6,7 +6,7 @@ namespace ct;
 
 // Action hook for AJAX Request
 add_action('wp_ajax_page_add_new', array('ct\PostData', 'addNew'));
-
+add_action('wp_ajax_page_add_category', array('ct\PostData', 'addNewCategory'));
 
 class PostData
 {
@@ -14,9 +14,17 @@ class PostData
 	{
 		// Get the form data
 		$Data = self::getData();
-	
+		
+		if(isset($_POST['update']))
+		{
+			// Insert data into DB
+			$RetVal = self::updateData($Data);
+		}
+		else
+		{
 		// Insert data into DB
-		$RetVal = self::addData($Data);
+			$RetVal = self::addData($Data);
+		}
 
 		if($RetVal)
 		{
@@ -66,6 +74,44 @@ class PostData
 		$wpdb->insert($ct_clients, $Data,	array('%s', '%s', '%s', '%s', '%s', '%s', '%d','%s', '%s','%s','%d') ); 
 
 		return true;
+	}
+
+	public static function updateData($Data)
+	{
+		global $wpdb;
+
+		$table_prefix = $wpdb->prefix;
+		$ct_clients = $table_prefix.'ct_clients';
+
+		$updateID = $_POST['update_id'];
+
+		// Unsetting the Created Date
+		unset($Data['created_at']);
+
+		$wpdb->update($ct_clients, $Data, array('id'=> $updateID), $format = null, $where_format = null );
+		
+		return true;
+	}
+
+	public static function addNewCategory()
+	{
+		$RetVal = false;
+		$Cat = $_POST['category'];
+
+		$RetVal = CTData::addCategory($Cat);
+
+		if($RetVal)
+		{
+			$msg = 'Successfully added';
+		}
+		else
+		{
+			$msg = "Issues adding the category. Make sure the same does'n exist.";
+		}
+
+		$response = array('status' => $RetVal, 'msg' 	=> $msg);
+		
+		wp_send_json($response);		
 	}
 }
 ?>

@@ -25,10 +25,6 @@ gulp.task('js', function ()
     gulp.src('js/ct-admin.js')
     .pipe(uglify('ct-admin.js'))
     .pipe(gulp.dest('./assets/js'));
-
-    gulp.src('js/think201-validator.js')
-    .pipe(uglify('think201-validator.js'))
-    .pipe(gulp.dest('./assets/js'));    
 });
 
 gulp.task('default', ['css', 'js']); 
