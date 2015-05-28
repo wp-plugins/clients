@@ -8,14 +8,14 @@
 		}
 		else
 		{
-			ctRedirectTo('admin.php?page=ct-all-clients');
+			ct\ctRedirectTo('admin.php?page=ct-all-clients');
 		}
 	}
 	else
 	{
-		if(function_exists('frRedirectTo'))
+		if(function_exists('ctRedirectTo'))
 		{
-			frRedirectTo('admin.php?page=dd-data-counter');
+			ct\ctRedirectTo('admin.php?page=ct-all-clients');
 		}
 		else
 		{

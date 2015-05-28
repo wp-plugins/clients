@@ -9,7 +9,7 @@ class CTShortCodes
     {
         // All the attributes
         $ClientList = self::getClients($attribs);
-
+    
         $Output = CTShortCodes::_processStyle($ClientList, $attribs);
 
         return $Output;

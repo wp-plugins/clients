@@ -4,7 +4,7 @@ Plugin Name: Clients
 Plugin URI: http://www.think201.com
 Description: Clients (CT) helps you find and replace phrases at ease
 Author: Think201
-Version: 1.0.1
+Version: 1.0.2
 Author URI: http://www.think201.com
 License: GPL v1
 
@@ -50,7 +50,7 @@ if ( !defined( 'CT_BASENAME' ) )
 define( 'CT_BASENAME', plugin_basename( __FILE__ ) );
 
 if ( !defined( 'CT_VERSION' ) )
-define('CT_VERSION', '1.0' );
+define('CT_VERSION', '1.0.2' );
 
 if ( !defined( 'CT_PLUGIN_DIR' ) )
 define('CT_PLUGIN_DIR', dirname(__FILE__) );

@@ -96,7 +96,7 @@ class CTListTable extends \WP_List_Table
             'logo'       => __( 'Logo' ),
             'url'  			 => __( 'URL' ),
             'category'   => __( 'Category' ),
-            'edit'   => __( 'Edit' )
+            'action'   => __( 'Action' )
         );
 
         return $columns;        
@@ -230,7 +230,7 @@ class CTListTable extends \WP_List_Table
     				// URL
 			$item->url = '<a href="'.addhttp($item->url).'" target="_blank">'.$item->url.'</a>';
 
-                $item->edit = '<a href="'.admin_url('admin.php?page=ct-edit-client&clientid='.$item->id).'">Edit</a>';
+                $item->action = '<a href="'.admin_url('admin.php?page=ct-edit-client&clientid='.$item->id).'">Edit</a><a style=" margin-left: 50px; color:#ff0010;" href="'.admin_url('admin.php?page=ct-all-clients&action=ct-delete-client&clientid='.$item->id).'">Delete</a>';
     				$process_items[$key] = $item;
     		}
 

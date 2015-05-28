@@ -105,5 +105,17 @@ class CTData
 
 		return true;
 	}	
+
+	public static function deleteClient($id)
+	{
+		global $wpdb;
+
+		$table_prefix = $wpdb->prefix;
+		$ct_clients = $table_prefix.'ct_clients';
+		
+		$wpdb->delete( $ct_clients, array( 'id' => $id ), array( '%d' ) );
+
+		return true;
+	}
 }
 ?>

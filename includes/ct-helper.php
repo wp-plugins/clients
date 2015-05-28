@@ -69,6 +69,11 @@ function ctRedirectTo($url)
     }    
 }
 
+function ctRedirectBack()
+{
+    return die('<script type="text/javascript">history.go(-1);</script>');      
+}
+
 function addhttp($url) 
 {
     if (!preg_match("~^(?:f|ht)tps?://~i", $url)) 
@@ -82,18 +87,21 @@ function addhttp($url)
 function getClientCatList($SetValue = null)
 {
     $Categories = CTData::getCategories();
-?>
+    ?>
     <select name="category">
       <option value="na">No Specific</option>  
-<?php
-    foreach ($Categories as $key => $value) 
-    {
-    ?>
-        <option value="<?php echo $key;?>" <?php selected( $SetValue , $key, true);?>><?php echo $value; ?></option>
     <?php
+    if(is_array($Categories))
+    {
+        foreach ($Categories as $key => $value) 
+        {
+            ?>
+            <option value="<?php echo $key;?>" <?php selected( $SetValue , $key, true);?>><?php echo $value; ?></option>
+            <?php
+        }
     }
-?>
-    </select>
+    ?>
+</select>
 <?php
 }
 

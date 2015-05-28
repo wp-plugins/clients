@@ -1,4 +1,19 @@
 <?php
+if(isset($_GET['action']) && isset($_GET['clientid']))
+{
+   if($_GET['action'] === 'ct-delete-client')
+   {
+      $client_id = $_GET['clientid'];
+      $Client = ct\CTData::deleteClient($client_id); 
+
+      // Redirect back to the client list
+      ct\ctRedirectTo('admin.php?page=ct-all-clients');
+   }
+   else
+   {
+      ct\ctRedirectTo('admin.php?page=ct-all-clients');
+   }
+}
 
 $wp_list_table = new ct\CTListTable();
 

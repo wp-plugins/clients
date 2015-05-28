@@ -4,8 +4,8 @@ Tags: clients, list, add, featured, print
 Requires at least: 3.5.2
 Donate link: http://www.think201.com/
 Tested up to: 4.1
-Stable tag: 1.0.1
-Version: 1.0.1
+Stable tag: 1.0.2
+Version: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,6 +76,10 @@ To be updated soon
 
 * Its recommended to delete the existing plugin & install the updated one.
 
+= 1.0.2 =
+
+Delete option added for the clients added.
+
 == Changelog ==
 
 = 1.0 =
@@ -87,5 +91,9 @@ To be updated soon
 - Generate & use function to display clients added 
 - Minor bug fixes 
 - UI Enhancements
+
+= 1.0.1 =
+- Delete Option added for the Clients already added
+
 
 
