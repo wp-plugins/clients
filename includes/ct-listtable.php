@@ -18,7 +18,7 @@ class CTListTable extends \WP_List_Table
             'singular' => 'client',
             'plural'   => 'clients',
             'ajax'     => true
-        ) );
+            ) );
 
         $this->set_order();
         $this->set_orderby();
@@ -34,13 +34,19 @@ class CTListTable extends \WP_List_Table
         $args = array( 'id', 'name', 'logo', 'url', 'category');
         
 
+
         $sql_select = implode( ', ', $args );
 
-        $query = "SELECT $sql_select
-                  FROM $ct_clients
-               	  ORDER BY $this->orderby $this->order ";
+        $Query = "SELECT $sql_select FROM $ct_clients";
 
-        $sql_results = $wpdb->get_results($query);
+        if(isset($_POST['s']))
+        {
+            $Query .= " WHERE name LIKE '%".$_POST['s']."%'";
+        }
+
+        $Query .= " ORDER BY $this->orderby $this->order ";
+
+        $sql_results = $wpdb->get_results($Query);
 
         return $sql_results;
     }
@@ -97,7 +103,7 @@ class CTListTable extends \WP_List_Table
             'url'  			 => __( 'URL' ),
             'category'   => __( 'Category' ),
             'action'   => __( 'Action' )
-        );
+            );
 
         return $columns;        
     }
@@ -111,17 +117,17 @@ class CTListTable extends \WP_List_Table
             'id'     => array( 'id', true ),
             'name'     => array( 'name', true ),
             'category' => array( 'category', true )
-        );
+            );
 
         return $sortable;
     }
 
     public function get_hidden_columns()
     {
-    		$hidden   = array();
+      $hidden   = array();
 
-    		return $hidden;
-    }
+      return $hidden;
+  }
 
     /**
      * Prepare data for display
@@ -153,7 +159,7 @@ class CTListTable extends \WP_List_Table
             'total_items' => $total_items,
             'per_page'    => $per_page,
             'total_pages' => ceil( $total_items / $per_page )
-        ) );
+            ) );
 
         $last_post = $current_page * $per_page;
         $first_post = $last_post - $per_page + 1;
@@ -192,15 +198,15 @@ class CTListTable extends \WP_List_Table
             <div class="alignleft actions">
                 <?php # $this->bulk_actions( $which ); ?>
             </div>
-             -->
-            <?php
-            $this->extra_tablenav( $which );
-            $this->pagination( $which );
-            ?>
-            <br class="clear" />
-        </div>
+        -->
         <?php
-    }
+        $this->extra_tablenav( $which );
+        $this->pagination( $which );
+        ?>
+        <br class="clear" />
+    </div>
+    <?php
+}
 
     /**
      * Disables the views for 'side' context as there's not enough free space in the UI
@@ -220,21 +226,21 @@ class CTListTable extends \WP_List_Table
 
     public function process_items($items)
     {
-    		$process_items = array();
+      $process_items = array();
 
-    		foreach($items as $key => $item)
-    		{
+      foreach($items as $key => $item)
+      {
     				// Logo 
-    				$item->logo = '<img src="'.$item->logo.'" class="logo-icon">';
+        $item->logo = '<img src="'.$item->logo.'" class="logo-icon">';
 
     				// URL
-			$item->url = '<a href="'.addhttp($item->url).'" target="_blank">'.$item->url.'</a>';
+        $item->url = '<a href="'.addhttp($item->url).'" target="_blank">'.$item->url.'</a>';
 
-                $item->action = '<a href="'.admin_url('admin.php?page=ct-edit-client&clientid='.$item->id).'">Edit</a><a style=" margin-left: 50px; color:#ff0010;" href="'.admin_url('admin.php?page=ct-all-clients&action=ct-delete-client&clientid='.$item->id).'">Delete</a>';
-    				$process_items[$key] = $item;
-    		}
-
-    		return $process_items;
+        $item->action = '<a href="'.admin_url('admin.php?page=ct-edit-client&clientid='.$item->id).'">Edit</a><a style=" margin-left: 50px; color:#ff0010;" href="'.admin_url('admin.php?page=ct-all-clients&action=ct-delete-client&clientid='.$item->id).'">Delete</a>';
+        $process_items[$key] = $item;
     }
+
+    return $process_items;
+}
 }
 ?>

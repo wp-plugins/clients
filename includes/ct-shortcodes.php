@@ -24,7 +24,7 @@ class CTShortCodes
 
     private static function _processStyle($ClientList, $Config)
     {
-        $Atts = shortcode_atts( array('style' => 'grid'), $Config );
+        $Atts = shortcode_atts( array('style' => 'grid', 'numcols' => CT_SHRT_NUMCOLUMNS), $Config );
 
         switch ($Atts['style']) 
         {

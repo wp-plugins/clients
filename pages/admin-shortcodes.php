@@ -1,5 +1,8 @@
 <div class="wrap">
-	<h2>Generate Shortcodes</h2>
+	<h2>
+		Generate Shortcodes
+		<a href="<?php print admin_url('admin.php?page=ct-all-clients'); ?>" class="add-new-h2">All Clients</a>&nbsp;&nbsp;
+	</h2>
 
 	<div id="message" class="updated below-h2 ct-msg ct_success_msg">
 		<p>Shortcode has been generated.</p>
@@ -48,6 +51,7 @@
 							<select name="style">
 								<option value="grid">Grid View</option>
 								<option value="list">List of Clients</option>
+								<option value="slider">Slider</option>
 							</select>
 						</td>
 					</tr>

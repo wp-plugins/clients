@@ -10,20 +10,26 @@ gulp.task('watch', function ()
 {
 	gulp.watch(cssDir + '/**/*.scss', ['css']);
 	gulp.watch(jsDir + '/**/*.js', ['js']);
+   gulp.watch(jsDir + '/**/*.js', ['jsuser']);
 }); 
 
 gulp.task('css', function () 
 {
-  	gulp.src('scss/ct.scss')
-  	.pipe(sass({sourcemapPath: 'scss', style: 'compressed'}))
-  	.on('error', function (err) { console.log(err.message); })
-    .pipe(gulp.dest('./assets/css'));    
+   return sass(cssDir)
+  .pipe(gulp.dest('./assets/css'));    	  
 });
 
 gulp.task('js', function () 
 {
     gulp.src('js/ct-admin.js')
     .pipe(uglify('ct-admin.js'))
+    .pipe(gulp.dest('./assets/js'));
+});
+
+gulp.task('jsuser', function () 
+{
+    gulp.src('js/ct-user.js')
+    .pipe(uglify('ct-user.js'))
     .pipe(gulp.dest('./assets/js'));
 });
 
