@@ -3,7 +3,7 @@ Contributors: think201, yashaswinisprakash, anuragrath
 Tags: clients, list, add, featured, print
 Requires at least: 3.5.2
 Donate link: http://www.think201.com/
-Tested up to: 4.1
+Tested up to: 4.2.2
 Stable tag: 1.1.1
 Version: 1.1.1
 License: GPLv2 or later
