@@ -11,7 +11,7 @@ if(isset($_GET['action']) && isset($_GET['clientid']))
 $wp_list_table = new ct\CTListTable();
 
 ?>
-<div class="wrap">
+<div class="wrap t201plugin">
   <h2>
     All Clients
     <a href="<?php print admin_url('admin.php?page=ct-add-new'); ?>" class="add-new-h2">Add New</a>&nbsp;&nbsp;

@@ -32,12 +32,12 @@ class Clients
     {
         $Data = array();
 
-        $Data['get']        = isset($_POST['get']) ? $_POST['get'] : CT_SHRT_SHOWTYPE;
+        $Data['get']        = isset($_POST['get']) ? sanitize_text_field($_POST['get']) : CT_SHRT_SHOWTYPE;
         $Data['category']   = isset($_POST['category']) ? $_POST['category'] : CT_SHRT_CATEGORY;
 
-        $Data['style']          = isset($_POST['style']) ? $_POST['style'] : CT_SHRT_STYLE;
-        $Data['numclients']     = isset($_POST['numclients']) ? $_POST['numclients'] : CT_SHRT_NUMCLIENTS;
-        $Data['numcols']         = isset($_POST['numcols']) ? $_POST['numcols'] : CT_SHRT_NUMCOLUMNS;
+        $Data['style']          = isset($_POST['style']) ? sanitize_text_field($_POST['style']) : CT_SHRT_STYLE;
+        $Data['numclients']     = isset($_POST['numclients']) ? sanitize_text_field($_POST['numclients']) : CT_SHRT_NUMCLIENTS;
+        $Data['numcols']         = isset($_POST['numcols']) ? sanitize_text_field($_POST['numcols']) : CT_SHRT_NUMCOLUMNS;
 
         $Data['showlogo'] = isset($_POST['showlogo']) ? $_POST['showlogo'] : false;
         $Data['showname'] = isset($_POST['showname']) ? $_POST['showname'] : false;

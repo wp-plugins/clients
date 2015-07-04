@@ -25,7 +25,7 @@ $Width = 100 / $Config['numcols'];
 			{
 				?>
 				<div class="client-col clients-list-item <?php echo $Config['class']; ?>" style="width:<?php echo $Width.'%'; ?>; float: left;">
-					<a href="<?php echo $Client->url; ?>" title="<?php echo $Client->name; ?>" target="_blank">
+					<a href="<?php echo ct\addhttp($Client->url); ?>" title="<?php echo $Client->name; ?>" target="_blank">
 						<img src="<?php echo $Client->logo; ?>" alt="<?php echo $Client->name; ?>">						
 						<?php						
 							if($Config['showname'] == 'true')

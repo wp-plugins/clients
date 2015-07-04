@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="wrap t201plugin">
     <h2>Client Categories</h2>
 
     <div id="message" class="updated below-h2 ct-msg ct_success_msg">

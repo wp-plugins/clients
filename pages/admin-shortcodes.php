@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="wrap t201plugin">
 	<h2>
 		Generate Shortcodes
 		<a href="<?php print admin_url('admin.php?page=ct-all-clients'); ?>" class="add-new-h2">All Clients</a>&nbsp;&nbsp;

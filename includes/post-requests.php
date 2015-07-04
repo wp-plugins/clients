@@ -44,14 +44,14 @@ class PostData
 	{
 		$Data = array();
 
-		$Data['name'] 				= isset($_POST['name']) ? $_POST['name'] : ''; 	
-		$Data['description'] 		= isset($_POST['description']) ? $_POST['description'] : ''; 	
+		$Data['name'] 				= isset($_POST['name']) ? sanitize_text_field($_POST['name']) : ''; 	
+		$Data['description'] 		= isset($_POST['description']) ? sanitize_text_field($_POST['description']) : ''; 	
 
-		$Data['url'] 				= isset($_POST['url']) ? $_POST['url'] : '#';		
-		$Data['logo'] 				= isset($_POST['logo']) ? $_POST['logo'] : '';
-		$Data['description'] 		= isset($_POST['description']) ? $_POST['description'] : '';		
+		$Data['url'] 				= isset($_POST['url']) ? sanitize_text_field($_POST['url'] ): '#';		
+		$Data['logo'] 				= isset($_POST['logo']) ? sanitize_text_field($_POST['logo)']) : '';
+		$Data['description'] 		= isset($_POST['description']) ? sanitize_text_field($_POST['description']) : '';		
 
-		$Data['category'] 			= isset($_POST['category']) ? $_POST['category'] : ''; 
+		$Data['category'] 			= isset($_POST['category']) ? sanitize_text_field($_POST['category']) : ''; 
 		$Data['isfeatured'] 		= $_POST['isfeatured'] == "1"? 1: 0;		
 
 

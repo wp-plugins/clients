@@ -25,7 +25,7 @@
 
 ?>
 
-<div class="wrap">
+<div class="wrap t201plugin">
  	<h2>
  		Update
  		<a href="<?php print admin_url('admin.php?page=ct-all-clients'); ?>" class="add-new-h2">Back</a>

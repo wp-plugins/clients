@@ -56,10 +56,11 @@ class CTAdmin
         if(is_admin()) 
         {
             wp_enqueue_media();        
-            wp_enqueue_script( 'ct-ajax-request', plugins_url( 'clients/js/ct-admin.js' ), array( 'jquery' ), false, true );
-            wp_enqueue_script( 'ct-think201-validator', plugins_url( 'clients/assets/js/think201-validator.js' ), array( 'jquery' ), false, true );
+            wp_enqueue_script( 'ct-ajax-request', plugins_url( 'assets/js/ct-admin.js', dirname(__FILE__) ), array( 'jquery' ), false, true );
+            wp_enqueue_script( 'ct-think201-validator', plugins_url( 'assets/js/think201-validator.js', dirname(__FILE__) ), array( 'jquery' ), false, true );
             wp_localize_script( 'ct-ajax-request', 'CTAjax', array( 'ajaxurl' => plugins_url( 'admin-ajax.php' ) ) );
-            wp_enqueue_style( 'ct-css', plugins_url( 'clients/assets/css/ct.css' ), array(), CT_VERSION, 'all' );
+            
+            wp_enqueue_style( 'ct-css', plugins_url( 'assets/css/ct.css', dirname(__FILE__) ), array(), CT_VERSION, 'all' );
         }
     }
 
@@ -67,8 +68,8 @@ class CTAdmin
     {
         if (!is_admin()) 
         {           
-            wp_enqueue_style( 'ct-css', plugins_url( 'clients/assets/css/ct.css' ), array(), CT_VERSION, 'all' );
-            wp_enqueue_script( 'ct-user', plugins_url( 'clients/assets/js/ct-user.js' ), array( 'jquery' ), false, true );
+            wp_enqueue_style( 'ct-css', plugins_url( 'assets/css/ct.css', dirname(__FILE__) ), array(), CT_VERSION, 'all' );
+            wp_enqueue_script( 'ct-user', plugins_url( 'assets/js/ct-user.js', dirname(__FILE__) ), array( 'jquery' ), false, true );
         }
     }    
 

@@ -76,6 +76,11 @@ function ctRedirectBack()
 
 function addhttp($url) 
 {
+    if($url == '#')
+    {
+        return $url;
+    }
+
     if (!preg_match("~^(?:f|ht)tps?://~i", $url)) 
     {
         $url = "http://" . $url;
