@@ -48,7 +48,7 @@ class PostData
 		$Data['description'] 		= isset($_POST['description']) ? sanitize_text_field($_POST['description']) : ''; 	
 
 		$Data['url'] 				= isset($_POST['url']) ? sanitize_text_field($_POST['url'] ): '#';		
-		$Data['logo'] 				= isset($_POST['logo']) ? sanitize_text_field($_POST['logo)']) : '';
+		$Data['logo'] 				= isset($_POST['logo']) ? sanitize_text_field($_POST['logo']) : '';
 		$Data['description'] 		= isset($_POST['description']) ? sanitize_text_field($_POST['description']) : '';		
 
 		$Data['category'] 			= isset($_POST['category']) ? sanitize_text_field($_POST['category']) : ''; 

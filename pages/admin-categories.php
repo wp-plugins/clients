@@ -11,7 +11,7 @@
     <div class="tbox">
         <div class="tbox-heading">
             <h3>Add New Category</h3>
-            <a href="http://labs.think201.com/plugins/clients" target="_blank" class="pull-right">Need help?</a>
+            <a href="http://labs.think201.com/plugin/clients" target="_blank" class="pull-right">Need help?</a>
         </div>
         <div class="tbox-body">
             <form name="ct-add-category" id="ct-add-category" action="#" method="post">             

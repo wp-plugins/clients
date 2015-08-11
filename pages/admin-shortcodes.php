@@ -14,7 +14,7 @@
 	<div class="tbox">
 		<div class="tbox-heading">
 			<h3>Configure and Generate ShortCode</h3>
-			<a href="http://labs.think201.com/plugins/clients" target="_blank" class="pull-right">Need help?</a>
+			<a href="http://labs.think201.com/plugin/clients" target="_blank" class="pull-right">Need help?</a>
 		</div>
 		<div class="tbox-body">
 			<form name="ct-create-shortcode" id="ct-create-shortcode" action="#" method="post">		        
